@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +19,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// afficher formulaire modif
+Route::get('user/update', [App\Http\Controllers\User\UserController::class, 'showUpdatePage'])->name('user.update');
+
+// valider les modifs
+Route::put('user/update', [App\Http\Controllers\User\UserController::class, 'update'])->name('user.update');
